@@ -1,0 +1,11 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+POST  /event              controllers.PostApiController.postEvent
+GET   /health             controllers.HealthCheckController.check
+
+GET   /docs               controllers.Assets.at(path="/public/swagger", file="index.html")
+GET   /docs/*file         controllers.Assets.versioned(path="/public/swagger", file: Asset)
+GET   /swagger.json       controllers.swagger.ApiSpecs.specs
