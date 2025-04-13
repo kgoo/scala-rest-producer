@@ -17,16 +17,16 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set up JDK
+      - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          java-version: 11
-          distribution: 'temurin'
+          distribution: temurin
+          java-version: 17
 
       - name: Set up sbt
-        uses: coursier/setup-action@v1
+        uses: sbt/actions/setup-sbt@v1
 
-      - name: Cache SBT
+      - name: Cache sbt & ivy2
         uses: actions/cache@v3
         with:
           path: |
