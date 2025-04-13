@@ -26,17 +26,11 @@ definitions:
   Event:
     type: object
     required:
-      - type
       - key
       - value
       - timestamp
     properties:
-      type:
-        type: string
       key:
         type: string
       value:
         type: string
-      timestamp:
-        type: integer
-        format: int64

@@ -1,0 +1,35 @@
+name: Scala CI
+
+on:
+  push:
+    paths:
+      - '**.scala'
+      - 'build.sbt'
+      - 'project/**'
+      - '.github/workflows/**'
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+          distribution: 'temurin'
+
+      - name: Cache SBT
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.ivy2/cache
+            ~/.sbt
+          key: sbt-cache-${{ runner.os }}-${{ hashFiles('**/build.sbt') }}
+
+      - name: Run tests
+        run: sbt test
