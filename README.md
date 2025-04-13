@@ -77,7 +77,7 @@ Use the CLI container:
 
 ```bash
 docker exec -it kafka-cli sh
-kafka-console-consumer --bootstrap-server kafka:9092 --topic events --from-beginning
+kafka-console-consumer --bootstrap-server kafka:29092 --topic events --from-beginning
 ```
 
 You should see something like:
